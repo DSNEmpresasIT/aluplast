@@ -1,0 +1,17 @@
+.textures-button-container {
+  margin-top: 15px;
+}
+
+.textures-button-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.textures-button-container button:focus-visible {
+  outline: none;
+}
+
+.textures-button-container button:focus {
+  outline: none;
+}

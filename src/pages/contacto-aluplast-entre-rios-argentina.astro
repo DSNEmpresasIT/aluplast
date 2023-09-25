@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FormContact from "../components/contact/FormContact";
+import { PAGES } from "../utils/types/pagesTypes";
+import BreadCumbComponent from "../components/common/BreadCumbComponent.astro";
+import InfoSection from "../components/contact/InfoSection.astro";
+import { contactData } from "src/utils/data/contactData";
+
+const {
+  RECAPTCHA_KEY,
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE,
+  CONTACT_EMAILJS_TEMPLATE,
+} = await import.meta.env;
+---
+
+<Layout pageTitle={PAGES.CONTACT}>
+  <!-- Page Wrap -->
+  <div class="page-wrap">
+    <BreadCumbComponent breadcumbs={PAGES.CONTACT} />
+    <InfoSection
+      address={contactData[0].address}
+      phone={contactData[0].phone}
+      mail={contactData[0].mail}
+      title={"Información de contacto"}
+    />
+    <!-- Contact content -->
+    <section class="contact-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="m-t-40">
+              <!-- <div style="min-height: 60vh" id="google-map"></div> -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6716.896210460304!2d-58.8893424!3d-32.6741277!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95baa828f2d32b47%3A0xbe4d5bd6a4354bd!2sAluplast%20SRL!5e0!3m2!1ses!2sar!4v1691100660476!5m2!1ses!2sar"
+                style="border: 0; width: 100%; height: 65vh" 
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-contact-wrap m-t-40">
+              <h4>Mandanos un mensaje</h4>
+              <FormContact
+                keys={{
+                  RECAPTCHA_KEY,
+                  EMAILJS_PUBLIC_KEY,
+                  EMAILJS_SERVICE,
+                  CONTACT_EMAILJS_TEMPLATE,
+                }}
+                client:load
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Content -->
+  </div>
+  <script
+    is:inline
+    src="/vendor/jquery-migrate-3.0.0.min.js"
+    type="text/javascript"></script>
+  <!-- <script is:inline>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const aluplast = { lat: -32.67400124615302, lng: -58.88200711152353 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("google-map"), {
+        zoom: 17,
+        center: aluplast,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: aluplast,
+        map: map,
+      });
+    }
+    window.initMap = initMap;
+  </script> -->
+  <!-- <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNtr_upVbMj_77yD5xcGQkhDHpeQHybxE&callback=initMap"
+    type="text/javascript"></script> -->
+  <!-- End Page Wrap -->
+</Layout>

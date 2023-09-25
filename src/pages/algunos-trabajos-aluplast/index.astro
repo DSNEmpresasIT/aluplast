@@ -1,0 +1,8 @@
+---
+import { ProjectRouter } from "@components/project/ProjectRouter";
+import Layout from "@layouts/Layout.astro";
+import { PAGES } from "src/utils/types/pagesTypes";
+---
+<Layout pageTitle={PAGES.SOME_PROJECTS}> 
+  <ProjectRouter  client:load />
+</Layout>

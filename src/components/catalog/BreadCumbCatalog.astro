@@ -1,0 +1,64 @@
+---
+import { PAGES_PATH } from "src/utils/types/pagesTypes";
+import { ProductFathersTypes } from "src/utils/types/types";
+const { product } = Astro.props;
+---
+<!-- Breadcrumb -->
+<section class="breadcrumbs-wrap" style="margin-top: 13vh;">
+  <div class="section-content section-content--w1140">
+    <div class="container clearfix">
+      <div class="breadcrumbs-inner">
+        <ul class="breadcrumbs1 ul--inline ul--no-style">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <span class="span-active">/</span>
+          <li>
+            {
+              product 
+                ? (<a href={`/${PAGES_PATH.CATALOG_PATH}`}>Catálogo</a>)
+                : ('Catálogo')
+            }
+          </li>
+          {
+            product && (
+              <span class="span-active">/</span>
+              <li class="active">
+                {product}
+              </li>
+            )
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Breadcrumb -->
+
+
+
+<!-- <section class="breadcrumbs-wrap" style="margin-top: 13vh;">
+  <div class=" section-content section-content--w1140">
+    <div class="container clearfix">
+      <div class="breadcrumbs-inner">
+        <ul class="breadcrumbs1 ul--inline ul--no-style">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <span class="span-active">/</span>
+          <li>
+            <a href="">Shop</a>
+          </li>
+          <span class="span-active">/</span>
+          <li>
+            <a href="">Lamp</a>
+          </li>
+          <span class="span-active">/</span>
+          <li class="active">
+            Morden Table Lamp
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> -->

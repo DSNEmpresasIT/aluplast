@@ -1,0 +1,119 @@
+---
+import { getThePlaceholderImage } from "src/utils/helpers/getPlaceholderImage";
+const { productSelected } = Astro.props;
+
+const placeholder = getThePlaceholderImage(productSelected.filters);
+
+---
+<div class="row">
+  <div class="col-lg-5 col-md-6">
+    <div class="single-product-img">
+      <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
+        <img alt={`${productSelected.img}`} src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } />
+      </a>
+    </div>
+    <ul class="single-product-img-thumb ul--inline ul--no-style clearfix">
+      <li>
+        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
+          <img alt="Product Thumb 1" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
+        </a>
+      </li>
+      <li>
+        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
+          <img alt="Product Thumb 2" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
+        </a>
+      </li>
+      <li>
+        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
+          <img alt="Product Thumb 3" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-7 col-md-6">
+    <div class="single-product-detail">
+      <h2>{productSelected.name}</h2>
+      <div class="pro__star">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+      <p>{productSelected.description}</p>
+      <div class="row no-gutters m-t-20">
+        {
+          productSelected.specs?.features && (
+            <>
+            {
+              productSelected.specs.features.map((feature: string) => (
+                    <div class="col-md-6">
+                      <div class="li-item">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        {feature}
+                      </div>
+                    </div>
+                  ))
+                }
+              </>
+            )
+          }
+      </div>
+      <div class="single-product-tab">
+        <!-- {
+          productSelected.specs?.descirption && ( -->
+            <ul class="nav nav-tabs" id="pro-tab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#description"
+                  role="tab"
+                  aria-controls="all"
+                  aria-expanded="true">Descripción</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="pro-content">
+              <div
+                class="tab-pane active"
+                id="description"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <p set:html={productSelected.specs?.descirption}>
+                  { productSelected.specs?.description?.map((spec: any)=> {
+                    return (
+                      <>
+                        <strong>{spec.title}:</strong> {spec.text} 
+                        <br />
+                        <span style={{ color: '#999' }}>_________________________________________________</span>
+                        <br />
+                      </>
+                    )
+                  }) }
+                </p>
+              </div>
+            </div>
+          <!-- )
+        } -->
+        <div class="single-product-form">
+          <div>
+            <!-- <button
+              type="button"
+              class="au-btn au-btn--big au-btn--pill au-btn--yellow au-btn--white"
+              >Preguntar el precio</button> -->
+              <a 
+              class="au-btn au-btn--big au-btn--pill au-btn--yellow au-btn--white"
+              href={`https://api.whatsapp.com/send?phone=543446374867&text=Hola, me gustaría saber mas información sobre el producto ${productSelected.name}`}
+              target="_blank" 
+              >
+                Consultar precio
+              </a>
+          </div>
+        </div>
+        <!-- End Tab Content   -->
+      </div>
+    </div>
+  </div>
+</div>

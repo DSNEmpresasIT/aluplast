@@ -1,0 +1,47 @@
+---
+import { PAGES_PATH } from "src/utils/types/pagesTypes";
+
+const distribuitors: string[] = [
+  'placeholder',
+  'placeholder',
+  'placeholder',
+  'placeholder',
+  'placeholder',
+  'placeholder',
+  'placeholder',
+  'placeholder',
+]
+
+---
+
+<section class="service-list">
+     <!-- Contact 2 -->
+     <div class="contact2">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-4 col-md-12">
+            <div class="contact2__item">
+              <p style="color: #555555;">
+                Estemos en contacto
+              </p>
+              <div>
+                <a href=`/${PAGES_PATH.CONTACT_PATH}` class="au-btn au-btn--pill au-btn--yellow au-btn--medium" style="color: white;">Contacto</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12">
+            <div class="partner-wrap1 owl-carousel owl-theme" id="owl-partner-2">
+              {
+                distribuitors.map(img => (
+                  <a type="button" class="partner__item item">
+                    <img alt="Distribuitor" src={`/img/distribuitors/${img}.png`}>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Contact2 -->
+</section>

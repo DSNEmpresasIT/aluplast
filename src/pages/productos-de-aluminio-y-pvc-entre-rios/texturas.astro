@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { PAGES } from "../../utils/types/pagesTypes";
+import BreadCumbTextures from "@components/textures/BreadCumbTextures.astro";
+import { TexturesComponent } from "@components/textures/TexturesComponent";
+---
+
+<Layout pageTitle={PAGES.CATALOG}>
+  <!-- Page Wrap -->
+  <div class="page-wrap">
+    <BreadCumbTextures />
+    <TexturesComponent client:load />
+  </div>
+</Layout>

@@ -1,0 +1,81 @@
+---
+import ShopCardComponent from "@components/catalog/ShopCardComponent";
+import { doorsData, windowsData } from "src/utils/data/catalogData";
+
+const allPanelData = [
+  windowsData[0], 
+  windowsData[1], 
+  windowsData[2], 
+  doorsData[0], 
+  doorsData[1], 
+  doorsData[2]
+].sort(() => Math.random() - 0.5 );
+
+const windowsPanelData = [
+  windowsData[0], 
+  windowsData[1], 
+  windowsData[2], 
+];
+
+const doorsPanelData = [
+  doorsData[0], 
+  doorsData[1], 
+  doorsData[2]
+];
+
+---
+
+   <!-- Our Product -->
+   <section class="our-product">
+    <div class=" section-content section-content--w1140">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="title title-6">Productos Principales</h3>
+          </div>
+        </div>
+        <!-- pro menu -->
+        <div class="row pro-menu-wrap">
+          <div id="pro-menu">
+            <ul class="nav nav-pills" id="myTabContent" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-expanded="true">Principales</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#windows" role="tab" aria-controls="windows">Ventanas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#doors" role="tab" aria-controls="doors">Puertas</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <span class="col-12 d-flex justify-content-center">
+            <a style="color: #e91d25;" href="/catalog">Ver catálogo completo</a>
+          </span>
+        </div>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane active" id="all" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row">
+              { allPanelData.map(product => ( <ShopCardComponent product={product} isHome={true} client:load/> )) }
+            </div>
+          </div>
+          <!-- End Tab pane -->
+          <div class="tab-pane" id="windows" role="tabpanel">
+            <div class="row">
+              { windowsPanelData.map(product => ( <ShopCardComponent product={product} isHome={true} client:load/> )) }
+            </div>
+          </div>
+          <!-- End tab Pane -->
+          <div class="tab-pane" id="doors" role="tabpanel">
+            <div class="row">
+              { doorsPanelData.map(product => ( <ShopCardComponent product={product} isHome={true}  client:load/> )) }
+            </div>
+          </div>
+          <!-- End tab Pane -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Our Product -->

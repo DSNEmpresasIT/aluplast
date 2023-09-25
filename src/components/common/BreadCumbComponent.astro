@@ -1,0 +1,35 @@
+---
+import { PAGES } from "../../utils/types/pagesTypes";
+const { breadcumbs } = Astro.props;
+const background = ((page: PAGES) => {
+  const pagesWithBanner = {
+    [PAGES.CATALOG]: 'catalog',
+    [PAGES.CONTACT]: 'contact',
+  }
+  // @ts-ignore
+  return pagesWithBanner[page] ?? 'contact' 
+})(breadcumbs);
+---
+<!-- Navigation -->
+<section class="navigation">
+  <div 
+    class="parallax parallax--nav-2"
+    style={`background-image: url(/img/${background}-banner.jpg);`}  
+  >
+    <div class="container clearfix">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 style="text-transform: none;">{breadcumbs}</h2>
+          <ul class="breadcrumbs ul--inline ul--no-style">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <span>/</span>
+            <li class="active">{breadcumbs}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Navigation -->

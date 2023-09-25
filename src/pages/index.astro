@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WhoWeAre from "../components/home/WhoWeAre.astro";
+import { PAGES } from "../utils/types/pagesTypes";
+import SliderComponent from "../components/home/SliderComponent.astro";
+// import ServicesComponent from "../components/home/ServicesComponent.astro";
+import VideoSectionComponent from "../components/home/VideoSectionComponent.astro";
+import ContactSectionComponent from "../components/home/ContactSectionComponent.astro";
+import OurProcess from "@components/home/OurProcess.astro";
+// import OurProductsComponent from "@components/home/OurProductsComponent.astro";
+import OurBestProducts from "@components/home/OurBestProducts.astro";
+import PartnersSection from "@components/home/PartnersSection.astro";
+import { BlogSectionComponent } from "@components/home/BlogSectionComponent";
+
+const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID } = await import.meta.env;
+
+---
+<Layout pageTitle={PAGES.HOME}>
+  <!-- Page Wrap -->
+  <div class="page-wrap">
+    <SliderComponent />
+    <WhoWeAre />
+    <VideoSectionComponent />
+    <OurProcess />
+    <BlogSectionComponent keys={{ FACEBOOK_TOKEN, FACEBOOK_PAGE_ID }} client:load />
+    <OurBestProducts />
+    <ContactSectionComponent />
+    <!-- <PartnersSection /> -->
+  </div>
+  <!-- End Page Wrap -->
+</Layout>

@@ -1,0 +1,286 @@
+---
+import { PAGES_PATH } from "src/utils/types/pagesTypes";
+import { ProductFathersTypes } from "src/utils/types/types";
+
+---
+
+<!-- Header Stick -->
+  <header class="header-stick header-stick--dark">
+    <div class="container clearfix">
+      <h1 class="logo pull-left">
+        <a href="/">
+          <img alt="Logo" src="/img/logo-white.png">
+        </a>
+      </h1>
+      <nav class="menu-desktop pull-right">
+        <ul class="ul--inline ul--no-style">
+          <li class="li-has-sub">
+            <a href="/">
+              Home
+            </a>
+          </li>
+          <li class="li-has-sub">
+            <a href={`/${PAGES_PATH.CATALOG_PATH}`}>
+              Productos
+            </a>
+            <ul class="sub-menu ul--no-style">
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.OPENERS_TYPES}`}>
+                  Aberturas
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CLOSERS_TYPES}`}>
+                  Cerramientos
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CS_TYPES}`}>
+                  Sistemas Complementarios
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.GARAGE_DOORS}`}>
+                  Portones Garage
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.WINDOWS}`}>
+                  Vidrios
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.SOLAR_CONTROL}`}>
+                  Control Solar
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.RESALES}`}>
+                  Reventa
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/texturas`}>
+                  Texturas
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href={`/${PAGES_PATH.NEWS_PATH}`}>
+              Noticias
+            </a>
+          </li>
+          <li>
+            <a href={`/${PAGES_PATH.SOME_PROJECTS}`}>
+              Proyectos
+            </a>
+          </li>
+          <li>
+            <a href={`${PAGES_PATH.CONTACT_PATH}`}>
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header Stick -->
+  <!-- Header Mobile -->
+  <header class="header-mobile">
+    <div class="container clearfix">
+      <h1 class="logo pull-left">
+        <a href="/">
+          <img alt="Logo" src="/img/logo.png">
+        </a>
+      </h1>
+      <a class="menu-mobile__button">
+        <i class="fa fa-bars"></i>
+      </a>
+      <nav class="menu-mobile hidden">
+        <ul class="ul--no-style">
+          <li>
+            <i class="fa fa-plus menu-mobile__more"></i>
+            <a href="/">
+              Home
+            </a>
+          </li>
+          <li class="li-has-sub">
+            <a href={`/${PAGES_PATH.CATALOG_PATH}`}>
+              Productos
+            </a>
+            <ul class="sub-menu ul--no-style">
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.OPENERS_TYPES}`}>
+                  Aberturas
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CLOSERS_TYPES}`}>
+                  Cerramientos
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CS_TYPES}`}>
+                  Sistemas Complementarios
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.GARAGE_DOORS}`}>
+                  Portones Garage
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.WINDOWS}`}>
+                  Vidrios
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.SOLAR_CONTROL}`}>
+                  Control Solar
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.RESALES}`}>
+                  Reventa
+                </a>
+              </li>
+              <li>
+                <a href={`/${PAGES_PATH.CATALOG_PATH}/texturas`}>
+                  Texturas
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li>
+            <a href={`/${PAGES_PATH.NEWS_PATH}`}>
+              Noticias
+            </a>
+          </li>
+          <li>
+            <a href={`/${PAGES_PATH.SOME_PROJECTS}`}>
+              Proyectos
+            </a>
+          </li>
+          <li>
+            <a href={`/${PAGES_PATH.CONTACT_PATH}`}>
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header Mobile -->
+  <!-- Top Contact -->
+  <section class="top-contact">
+    <div class="container clearfix">
+      <div class="top-contact--left pull-left">
+        <span>
+          Mail: ventas@aluplast.com.ar
+        </span>
+        <span>
+          Telefono: 03446 48-0213
+        </span>
+      </div>
+      <div class="top-contact--right pull-right">
+        <a href="https://www.facebook.com/AluplastAberturas" target="_blank">
+          <i class="zmdi zmdi-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/aluplast.aberturas/" target="_blank">
+          <i class="zmdi zmdi-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@aluplastmedia" target="_blank">
+          <i class="zmdi zmdi-youtube"></i>
+        </a>
+        <a href="https://wa.me/+5493446598417" target="_blank">
+          <i class="zmdi zmdi-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- End Top Contact -->
+  <!-- Header Desktop -->
+  <header class="header-desktop header3">
+    <div class="container">
+      <div class="header-wrap clearfix">
+        <h1 class="logo pull-left">
+          <a href="/">
+            <img alt="Logo" src="/img/logo.png">
+          </a>
+        </h1>
+        <nav class="menu-desktop menu-desktop--show pull-right">
+          <ul class="ul--inline ul--no-style">
+            <li class="li-has-sub">
+              <a href="/">
+                Home
+              </a>
+            </li>
+            <li class="li-has-sub">
+              <a href={`/${PAGES_PATH.CATALOG_PATH}`}>
+                Productos
+              </a>
+              <ul class="sub-menu ul--no-style">
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.OPENERS_TYPES}`}>
+                    Aberturas
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CLOSERS_TYPES}`}>
+                    Cerramientos
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.CS_TYPES}`}>
+                    Sistemas Complementarios
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.GARAGE_DOORS}`}>
+                    Portones Garage
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.WINDOWS}`}>
+                    Vidrios
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.SOLAR_CONTROL}`}>
+                    Control Solar
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/${ProductFathersTypes.RESALES}`}>
+                    Reventa
+                  </a>
+                </li>
+                <li>
+                  <a href={`/${PAGES_PATH.CATALOG_PATH}/texturas`}>
+                    Texturas
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href={`/${PAGES_PATH.NEWS_PATH}`}>
+                Noticias
+              </a>
+            </li>
+            <li>
+              <a href={`/${PAGES_PATH.SOME_PROJECTS}`}>
+                Proyectos
+              </a>
+            </li>
+            <li>
+              <a href={`${PAGES_PATH.CONTACT_PATH}`}>
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- End Header Wrap -->
+    </div>
+  </header>

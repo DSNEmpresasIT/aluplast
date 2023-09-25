@@ -1,0 +1,59 @@
+---
+// import FormFooter from './FormFooter';
+import { footerDirectionsData } from "src/utils/data/contactData";
+import { InstagramGalleryFooter } from "./footer/InstagramGalleryFooter";
+import { InstagramVideoFooter } from "./footer/InstagramVideoFooter";
+
+// const { EMAILJS_SERVICE, FOOTER_EMAILJS_TEMPLATE, EMAILJS_PUBLIC_KEY, RECAPTCHA_KEY } = await import.meta.env;
+// const FooterProps = { EMAILJS_SERVICE, FOOTER_EMAILJS_TEMPLATE, EMAILJS_PUBLIC_KEY, RECAPTCHA_KEY };
+
+const { INSTAGRAM_TOKEN } = await import.meta.env;
+
+---
+    <!-- Footer -->
+    <footer class="footer-3">
+      <div class="section-content section-content--w1140">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <InstagramVideoFooter instagramToken={INSTAGRAM_TOKEN} client:load />
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <h5 class="title-footer m-b-26">Información de contacto</h5>
+              {
+                footerDirectionsData.map(info => {
+                  return (
+                  <div style="color: white; display:flex; flex-direction: column; margin-bottom: 5px; border-bottom: 1px solid #444444;">
+                    <a>
+                      <i style="color: #0a75ba;" class="fa fa-home" aria-hidden="true"></i>
+                      {info.title}
+                    </a>
+                    <a 
+                      style="color: white;"
+                      href={info.addressLink}
+                      target="_blank"
+                    >
+                      <i class="fa fa-map" style="color: #0a75ba;" aria-hidden="true"></i>
+                      Google Maps
+                    </a>
+                    <a style="color: white;">
+                      <i style="color: #0a75ba;" class="fa fa-phone" aria-hidden="true"></i>
+                      {info.phone}
+                    </a>
+                  </div>
+                  )
+                })
+              }
+            </div>
+            <InstagramGalleryFooter  instagramToken={INSTAGRAM_TOKEN} client:load />
+          </div>
+          <div class="copyright-2">
+            <div>
+              <p><span>Aluplast</span>, Fábrica de Aberturas de Aluminio &copy; 2023 <a href="https://www.dsnempresas.com.ar/" target="_blank"><span>powered by <img src="/img/dsn.png" style="max-width: 33px;" alt="dsn"></span></a><a target="_blank"><span></span></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Back to top -->

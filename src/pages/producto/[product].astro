@@ -1,0 +1,57 @@
+---
+import BreadCumbCatalog from "@components/catalog/BreadCumbCatalog.astro";
+import ShopCardComponent from "@components/catalog/ShopCardComponent";
+import ProductDetailSection from "@components/product/ProductDetailSection.astro";
+import Layout from "@layouts/Layout.astro";
+import { allCatalogData } from "src/utils/data/catalogData";
+
+export function getStaticPaths() {
+  return [
+    ...allCatalogData
+  ].map((product) => {
+    return { params: { product: product.name } };
+  });
+}
+
+const { product } = Astro.params;
+
+const productSelected = allCatalogData.filter((obj) => obj.name === product)[0];
+
+let relatedProducts = allCatalogData
+  .filter(product => product.filters.includes(productSelected.filters[1] ))
+  .filter(product => product !== productSelected)
+  .sort(() => Math.random() - 0.5 );
+
+if (!relatedProducts.length) {
+  relatedProducts = allCatalogData
+  .filter(product => product.filters.includes(productSelected.filters[0] ))
+  .filter(product => product !== productSelected)
+}
+
+---
+
+<Layout pageTitle={productSelected.name}>
+
+<div class="page-wrap">
+  <BreadCumbCatalog product={productSelected.name} />
+  <!-- Single Product -->
+  <section class="single-product" style="margin-top: 3%;">
+    <div class="section-content section-content--w1140">
+      <div class="container">
+        <ProductDetailSection productSelected={productSelected} />
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-center sbold m-t-70 m-b-5">Productos Relacionados</h3>
+          </div>
+        </div>
+        <div class="row">
+          {
+            relatedProducts.map((product, i) =>  ( (i < 3) && <ShopCardComponent product={product} client:load/> ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Single Product -->
+</div>
+</Layout>

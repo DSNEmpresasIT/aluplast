@@ -1,0 +1,37 @@
+---
+import { ShopComponent } from "@components/catalog/ShopComponent";
+import Layout from "../../layouts/Layout.astro";
+import { PAGES } from "../../utils/types/pagesTypes";
+import BreadCumbCatalog from "@components/catalog/BreadCumbCatalog.astro";
+import { ProductFathersTypes, TypeProduct } from "src/utils/types/types";
+
+export function getStaticPaths() {
+  const categoryTypes = [
+    ProductFathersTypes.CLOSERS_TYPES,
+    ProductFathersTypes.CS_TYPES,
+    ProductFathersTypes.OPENERS_TYPES,
+    ProductFathersTypes.GARAGE_DOORS,
+    ProductFathersTypes.RESALES,
+    ProductFathersTypes.SOLAR_CONTROL,
+    ProductFathersTypes.WINDOWS,
+    // ProductFathersTypes.SERVICES_TYPES,
+    TypeProduct.DOOR_PRODUCT,
+    TypeProduct.WINDOW_PRODUCT,
+  ]
+
+  return categoryTypes.map(category => (
+      { params: { category } }
+    )
+  )
+}
+
+const { category } = Astro.params;
+
+---
+
+<Layout pageTitle={PAGES.CATALOG}>
+  <!-- Page Wrap -->
+  <div class="page-wrap">
+    <BreadCumbCatalog />
+    <ShopComponent query={category} client:load/>
+  </div>
