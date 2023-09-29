@@ -5,17 +5,21 @@ import ProductDetailSection from "@components/product/ProductDetailSection.astro
 import Layout from "@layouts/Layout.astro";
 import { allCatalogData } from "src/utils/data/catalogData";
 
-export function getStaticPaths() {
-  return [
-    ...allCatalogData
-  ].map((product) => {
-    return { params: { product: product.name } };
-  });
-}
+// export function getStaticPaths() {
+//   return [
+//     ...allCatalogData
+//   ].map((product) => {
+//     return { params: { product: product.name } };
+//   });
+// }
 
 const { product } = Astro.params;
 
 const productSelected = allCatalogData.filter((obj) => obj.name === product)[0];
+
+if (!productSelected) {
+  return Astro.redirect('/productos-de-aluminio-y-pvc-entre-rios');
+}
 
 let relatedProducts = allCatalogData
   .filter(product => product.filters.includes(productSelected.filters[1] ))

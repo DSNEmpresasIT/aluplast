@@ -1,0 +1,29 @@
+---
+import { BlogDetail } from "../../../components/blog/BlogDetail";
+import Layout from "../../../layouts/Layout.astro";
+import { PAGES, PAGES_PATH } from "../../../utils/types/pagesTypes";
+
+const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID } = await import.meta.env;
+const { postId } = Astro.params;
+---
+
+<Layout pageTitle={PAGES.LAST_NEWS}>
+  <section class="breadcrumbs-wrap" style="margin-top: 13vh;">
+    <div class="section-content section-content--w1140">
+      <div class="container clearfix">
+        <div class="breadcrumbs-inner">
+          <ul class="breadcrumbs1 ul--inline ul--no-style">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <span class="span-active">/</span>
+            <li>
+              <a href={`/${PAGES_PATH.NEWS_PATH}`}>Noticias</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <BlogDetail keys={{ FACEBOOK_TOKEN, FACEBOOK_PAGE_ID }} POST_ID={postId} client:load/>
+</Layout>

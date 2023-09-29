@@ -24,9 +24,21 @@ export async function getFacebookImagePosts(FACEBOOK_PAGE_TOKEN: string, FACEBOO
       icon: post.icon,
       ...post.attachments.data[0],
       image: post.attachments.data[0].media.image,
-      media: undefined
+      media: undefined,
+      id: post.attachments?.data[0]?.target?.id
     }));
   } catch (error) {
+    console.log(error)
     throw new Error('getFacebookImagePosts error handler')
+  }
+}
+
+export async function getFacebookPost (POST_ID: string, ACCESS_TOKEN: string) {
+  try {
+    const data = await fetch(`${BASE_URL}/${POST_ID}?access_token=${ACCESS_TOKEN}&fields=picture,name,created_time,comments`);
+
+    return await data.json();
+  } catch (error) {
+    throw new Error('getFacebookPost error handler')
   }
 }

@@ -1,30 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import { useBlogContext } from 'src/context/blogContext';
 import { BlogTypes } from 'src/context/types/blog';
-import type { FacebookPost } from 'src/utils/types/types';
+import type { FacebookPost, Keys } from 'src/utils/types/types';
 import { getFormatDate } from 'src/utils/helpers/getFormatDate';
 import { pagination } from 'src/utils/helpers/pagination';
+import { getFacebookImagePosts, getFacebookPageToken } from 'src/services/facebook-services';
 
-export const BlogPosts = () => {
-  const { state, dispatch }: any = useBlogContext();
+export const BlogPosts = ({ keys }: { keys: Keys }) => {
   const [ posts, setPosts ] = useState<FacebookPost[]>();
   const [ postsPaginated, setPostsPaginated ] = useState<FacebookPost[]>();
   const [ indexPagination, setIndexPagination ] = useState({ startIndex: 0, lastIndex: 3 });
+  const [ pageAccessToken, setPageAccessToken ] = useState<string>();
 
-  const handleSetFacebookPostDetail = (post: FacebookPost) => {dispatch({ type: BlogTypes.SET_FACEBOOK_POST_DETAIL, payload: post })}
-  
+  useEffect(() => {
+    if (keys?.FACEBOOK_PAGE_ID && keys?.FACEBOOK_TOKEN) {
+      getFacebookPageToken(keys?.FACEBOOK_TOKEN, keys.FACEBOOK_PAGE_ID)
+        .then(res => setPageAccessToken(res.access_token))
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  },[keys]);
+
+  useEffect(() => {
+    if (pageAccessToken) {
+      getFacebookImagePosts(pageAccessToken, keys.FACEBOOK_PAGE_ID)
+        .then(res => {
+          setPosts(res)
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
+  },[pageAccessToken])
+
   const handlePagination = () => {
     setIndexPagination({
       startIndex: 0,
       lastIndex: indexPagination.lastIndex + 3
     })
   }
-
-  useEffect(() => {
-    if (state.facebookPostData) {
-      setPosts(state.facebookPostData)
-    } 
-  }, [state?.facebookPostData])
 
   useEffect(() => {
     if (posts) {
@@ -42,13 +57,13 @@ export const BlogPosts = () => {
                   <div key={post.target.id} className="col-lg-4 item design mt-5 animate__animated animate__fadeIn">
                     <div className="blog-item">
                       <div className="img-blog">
-                        <a href='' onClick={(e) => (e.preventDefault(),  handleSetFacebookPostDetail(post))} style={{ overflow: 'hidden', maxHeight: '150px', minHeight: '150px' }}>
+                        <a href={`/ultimas-noticias-aluplast/${post.id}`}  style={{ overflow: 'hidden', maxHeight: '150px', minHeight: '150px' }}>
                           <img alt="Blog 1" src={post.image.src} />
                         </a>
                       </div>
                       <div className="blog-content">
                         <h4 className="blog-title">
-                          <a type='button' onClick={(e) => (e.preventDefault(),  handleSetFacebookPostDetail(post))}>
+                          <a href={`/ultimas-noticias-aluplast/${post.id}`}>
                             <p>
                               {getFormatDate(post.created_time)}
                             </p>
@@ -64,7 +79,7 @@ export const BlogPosts = () => {
                         </p>
                         <div className='mt-3'>
                           <span className="col-12 d-flex justify-content-center">
-                            <a type='button' onClick={() => handleSetFacebookPostDetail(post)} style={{ color: '#e91d25', cursor: 'pointer' }} >Ver publicación</a>
+                            <a href={`/ultimas-noticias-aluplast/${post.id}`} style={{ color: '#e91d25', cursor: 'pointer' }} >Ver publicación</a>
                           </span>
                         </div>
                       </div>

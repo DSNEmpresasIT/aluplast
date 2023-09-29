@@ -1867,81 +1867,73 @@ export const resalesData: CatalogData[] = [
 
 export const texturesData: TexturesTypes[] = [
   {
-    name: "White",
-    img: "white",
+    name: "Roble oscuro",
+    img: "robleoscuro",
   },
   {
-    name: "Ivory",
-    img: "ivory",
+    name: "Nogal claro ",
+    img: "nogalclaro",
   },
   {
-    name: "White",
-    img: "white",
+    name: "Cedro claro  ",
+    img: "cedroclaro",
   },
   {
-    name: "Pewter",
-    img: "pewter",
+    name: "Gris microtexturado",
+    img: "grismicrotexturado",
   },
   {
-    name: "Metallic Grey",
-    img: "metallicgrey",
+    name: "Negro semi mato",
+    img: "negrosemimate",
   },
   {
-    name: "Natural Oak",
-    img: "naturaloak",
+    name: "Negro microtexturado",
+    img: "negromicrotexturado",
   },
   {
-    name: "Grey Oak",
-    img: "greyoak",
+    name: "Blanco semi mate",
+    img: "blancosemimate",
   },
   {
-    name: "Turner Oak",
-    img: "turneroak",
+    name: "Blanco brillante",
+    img: "blancobrillante",
   },
   {
-    name: "Golden Oak",
-    img: "goldenoak",
+    name: "Bronce colonial",
+    img: "broncecolonial",
   },
   {
-    name: "Sipo",
-    img: "sipo",
+    name: "Anodizado natural",
+    img: "anodizadonatural",
   },
   {
-    name: "Cherry",
-    img: "cherry",
+    name: "Anodizado gris",
+    img: "anodizadogris",
   },
   {
-    name: "Lenga",
-    img: "lenga",
+    name: "Anodizado peltre",
+    img: "anodizadopeltre",
   },
   {
-    name: "Walnut",
-    img: "walnut",
+    name: "Bronce claro",
+    img: "bronceclaro",
   },
   {
-    name: "Wengue",
-    img: "wengue",
+    name: "Bronce medio",
+    img: "broncemedio",
   },
   {
-    name: "Sapelli",
-    img: "sapelli",
+    name: "Anodizado negro",
+    img: "anodizadonegro",
   },
   {
-    name: "Green",
-    img: "green",
+    name: "Anodizado natural lijado",
+    img: "anodizadonaturallijado",
   },
   {
-    name: "Graphite Grey",
-    img: "graphitegrey",
-  },
-  {
-    name: "Brown Mat",
-    img: "brownmat",
-  },
-  {
-    name: "Jet Black",
-    img: "jetblack",
-  },
+    name: "Anodizado natural brillante",
+    img: "anodizadonaturalbrillante",
+  }
 ];
 
 export const allCatalogData: CatalogData[] = [
