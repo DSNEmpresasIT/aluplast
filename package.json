@@ -2,6 +2,7 @@
   "name": "astro-arch",
   "type": "module",
   "version": "0.0.1",
+  "module": "es2020",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

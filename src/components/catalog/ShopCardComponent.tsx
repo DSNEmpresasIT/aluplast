@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import type { FC } from "react";
 import { getThePlaceholderImage } from "src/utils/helpers/getPlaceholderImage";
 import { PAGES_PATH } from "src/utils/types/pagesTypes";
 import type { CatalogData } from "src/utils/types/types";

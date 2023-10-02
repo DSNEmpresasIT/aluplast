@@ -2,7 +2,7 @@ import {
   TypeProduct,
   type CatalogData,
   ProductFathersTypes,
-  TexturesTypes,
+  type TexturesTypes,
 } from "../types/types";
 
 export const windowsData: CatalogData[] = [

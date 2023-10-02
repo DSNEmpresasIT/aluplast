@@ -1,9 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ES2020",
     "jsx": "react",
     "baseUrl": ".",
+    "moduleResolution": "bundler",
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"]

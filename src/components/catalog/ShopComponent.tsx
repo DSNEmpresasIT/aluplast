@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import ShopCardComponent from "./ShopCardComponent";
 import { ShopNavComponent } from "./ShopNavComponent";
 import { allCatalogData } from "src/utils/data/catalogData";
-import { CatalogData, CatalogFiltersTypes } from "src/utils/types/types";
+import { CatalogFiltersTypes } from "src/utils/types/types";
+import type { CatalogData } from "src/utils/types/types";
 import { pagination } from "src/utils/helpers/pagination";
 
 const initialState = [
