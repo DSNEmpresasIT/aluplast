@@ -1867,81 +1867,73 @@ export const resalesData: CatalogData[] = [
 
 export const texturesData: TexturesTypes[] = [
   {
-    name: "White",
-    img: "white",
+    name: "Anodizado gris",
+    img: "ANODIZADOGRIS",
   },
   {
-    name: "Ivory",
-    img: "ivory",
+    name: "Anodizado natural",
+    img: "ANODIZADONATURAL",
   },
   {
-    name: "White",
-    img: "white",
+    name: "Anodizado natural brillante",
+    img: "ANODIZADONATURALBRILLANTE",
   },
   {
-    name: "Pewter",
-    img: "pewter",
+    name: "Anodizado natural lijado",
+    img: "ANODIZADONATURALLIJADO",
   },
   {
-    name: "Metallic Grey",
-    img: "metallicgrey",
+    name: "Anodizado negro",
+    img: "ANODIZADONEGRO",
   },
   {
-    name: "Natural Oak",
-    img: "naturaloak",
+    name: "Anodizado peltre",
+    img: "ANODIZADOPELTRE",
   },
   {
-    name: "Grey Oak",
-    img: "greyoak",
+    name: "Blanco brillante",
+    img: "BLANCOBRILLANTE",
   },
   {
-    name: "Turner Oak",
-    img: "turneroak",
+    name: "Blanco semi mate",
+    img: "BLANCOSEMIMATE",
   },
   {
-    name: "Golden Oak",
-    img: "goldenoak",
+    name: "Bronce claro",
+    img: "BRONCECLARO",
   },
   {
-    name: "Sipo",
-    img: "sipo",
+    name: "Bronce colonial",
+    img: "BRONCECOLONIAL",
   },
   {
-    name: "Cherry",
-    img: "cherry",
+    name: "Bronce medio",
+    img: "BRONCEMEDIO",
   },
   {
-    name: "Lenga",
-    img: "lenga",
+    name: "Cedro claro",
+    img: "CEDROCLARO",
   },
   {
-    name: "Walnut",
-    img: "walnut",
+    name: "Gris micro texturado",
+    img: "GRISMICROTEXTURADO",
   },
   {
-    name: "Wengue",
-    img: "wengue",
+    name: "Negro semi mate",
+    img: "NEGROSEMIMATE",
   },
   {
-    name: "Sapelli",
-    img: "sapelli",
+    name: "Negro semi texturado",
+    img: "NEGROSEMITEXTURADO",
   },
   {
-    name: "Green",
-    img: "green",
+    name: "Nogal claro",
+    img: "NOGALCLARO",
   },
   {
-    name: "Graphite Grey",
-    img: "graphitegrey",
-  },
-  {
-    name: "Brown Mat",
-    img: "brownmat",
-  },
-  {
-    name: "Jet Black",
-    img: "jetblack",
-  },
+    name: "Roble oscuro",
+    img: "ROBLEOSCURO",
+  }
 ];
 
 export const allCatalogData: CatalogData[] = [

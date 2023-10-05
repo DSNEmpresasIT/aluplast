@@ -32,10 +32,10 @@ export const TexturesComponent = () => {
                   <div className='col-12'>
                     <h3>Texturas, anodizado y pintura</h3>
                     <p>
-                    Nuestros métodos de tratamiento de superficie, pintura y anodizado, pueden reforzar las ventajas del aluminio y rematar tu producto con un hermoso acabado. El anodizado sella y protege el aluminio extruido. La pintura te ofrece una selección ilimitada de colores y en diversos brillos, con una excelente consistencia de color.
-                    <br />
-                    <br />
-                    Al anodizar tus extrusiones de aluminio obtendrás una superficie que repele la suciedad y mejora la resistencia a la corrosión, lo cual te proporcionará una superficie con revestimiento aislado eléctricamente y preservará el acabado del metal. Y además, es una superficie muy agradable al tacto.
+                      Nuestros métodos de tratamiento de superficie, pintura y anodizado, pueden reforzar las ventajas del aluminio y rematar tu producto con un hermoso acabado. El anodizado sella y protege el aluminio extruido. La pintura te ofrece una selección ilimitada de colores y en diversos brillos, con una excelente consistencia de color.
+                      <br />
+                      <br />
+                      Al anodizar tus extrusiones de aluminio obtendrás una superficie que repele la suciedad y mejora la resistencia a la corrosión, lo cual te proporcionará una superficie con revestimiento aislado eléctricamente y preservará el acabado del metal. Y además, es una superficie muy agradable al tacto.
                     </p>
                   </div>
                   {

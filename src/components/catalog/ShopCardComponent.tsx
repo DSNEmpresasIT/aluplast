@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type { FC } from "react";
 import { getThePlaceholderImage } from "src/utils/helpers/getPlaceholderImage";
+import { getProductTypeName } from "src/utils/helpers/getProductTypesNames";
 import { PAGES_PATH } from "src/utils/types/pagesTypes";
 import type { CatalogData } from "src/utils/types/types";
 
@@ -38,9 +39,20 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
           </div>
         </div>
         <div className="pro__detail">
+          <p style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px' }}>
+            <span style={{ fontSize: '10px', color: 'red' }}>{getProductTypeName(product.filters[0])}</span>
+            <span style={{ fontSize: '10px', color: 'green' }}>Nuevo</span>
+          </p>
           <h5>
             <a href="single-product.html" style={{ textTransform: 'none' }}>{productName}</a>
           </h5>
+          <a
+            href={link}
+            className="au-btn au-btn--pill au-btn--yellow"
+            style={{ color: 'white', maxWidth: '120px', maxHeight: '70px' }}
+          >
+            Ver producto
+          </a>
         </div>
       </div>
     </div>

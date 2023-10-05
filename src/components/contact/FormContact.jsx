@@ -53,7 +53,7 @@ const FormContact = ({ keys }) => {
         setData(initialValues);
         setShowCaptcha(false)
       })
-      .catch(() => alert('Ha ocurrido un error, intentelo mas tarde ⛔'), setShowCaptcha(false))
+      .catch((err) => (alert('Ha ocurrido un error, intentelo mas tarde ⛔'), console.log(err)), setShowCaptcha(false))
   }
 
   return (

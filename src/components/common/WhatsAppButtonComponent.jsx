@@ -16,7 +16,7 @@ const WhatsAppButtonComponent = () => {
               style={{ display: isLinksDisplayActive ? 'flex' : 'none' }}
             >
               <div className='container-header'>
-                <img src={WppIconHead.src} width="70px" alt="ws-logo" />
+                <img src={WppIconHead} width="70px" alt="ws-logo" />
                 <span className='title-header'>
                   ¡Comunícate 
                   <br />
@@ -41,7 +41,7 @@ const WhatsAppButtonComponent = () => {
               className='whatsapp-glove-button animate__animated animate__fadeInUp' 
               onClick={() => setIsLinksDisplayActive(!isLinksDisplayActive)}
             >
-              <img src={WppIcon.src} width={35} alt="whatsapp" />
+              <img src={WppIcon} width={35} alt="whatsapp" />
             </div>
           )
       }

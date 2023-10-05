@@ -1,15 +1,36 @@
 ---
 import { PAGES_PATH } from "src/utils/types/pagesTypes";
 
-const distribuitors: string[] = [
-  'placeholder',
-  'placeholder',
-  'placeholder',
-  'placeholder',
-  'placeholder',
-  'placeholder',
-  'placeholder',
-  'placeholder',
+// const distribuitors: string[] = [
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+//   'placeholder',
+// ]
+
+const partners: string[] = [
+  'aguara',
+  'transportemostto',
+  'soychu',
+  'rontaltex',
+  'noelma',
+  'mitreconstrucciones',
+  'inprocil',
+  'imperialcord',
+  'hornus',
+  'hermann',
+  'entrerioscrushing',
+  'elrodeo',
+  'construccionesdeloeste',
+  'codegu',
+  'cappeletti',
+  'bonnin',
+  'baggio',
+  'alexisneuwirt',
 ]
 
 ---
@@ -32,9 +53,9 @@ const distribuitors: string[] = [
           <div class="col-lg-8 col-md-12">
             <div class="partner-wrap1 owl-carousel owl-theme" id="owl-partner-2">
               {
-                distribuitors.map(img => (
+                partners.map(img => (
                   <a type="button" class="partner__item item">
-                    <img alt="Distribuitor" src={`/img/distribuitors/${img}.png`}>
+                    <img alt="Distribuitor" src={`/img/partners/${img}.png`}>
                   </a>
                 ))
               }

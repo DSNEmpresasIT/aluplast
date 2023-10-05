@@ -1,232 +1,93 @@
 import React, { type FC } from "react";
-import { AccordionItem } from "@components/accordion/AccordionItem";
-import { closersData, complementarySystemData, controlSolar, doorsData, garageDoorsData, resalesData, windowsData, windowsFatherData } from "src/utils/data/catalogData";
-import { PAGES_PATH } from "src/utils/types/pagesTypes";
-import { ProductFathersTypes, TypeProduct } from "src/utils/types/types";
+import { allCatalogData  } from "src/utils/data/catalogData";
+import { ProductFathersTypes } from "src/utils/types/types";
+import { getProductTypeName } from "src/utils/helpers/getProductTypesNames";
 
-const dataNav = [
+
+const navData = [
   {
-    title: "Aberturas",
-    filter: ProductFathersTypes.OPENERS_TYPES,
-    types: [
-      {
-        title: 'Ventanas',
-        filter: TypeProduct.WINDOW_PRODUCT,
-        subTypes: [
-          ...windowsData.map(window => {
-            return {
-              title: window.name,
-              filter: window.filters[2]
-            }
-          }).sort(function (a, b) {
-            if (a.title < b.title) {
-              return -1;
-            }
-            if (a.title > b.title) {
-              return 1;
-            }
-            return 0;
-          })
-        ]
-      },
-      {
-        title: "Control solar",
-        filter: ProductFathersTypes.SOLAR_CONTROL,
-        types: [
-          ...controlSolar.map(solar_control => {
-            return {
-              title: solar_control.name,
-              filter: solar_control.filters[1]
-            }
-          }).sort(function (a, b) {
-            if (a.title < b.title) {
-              return -1;
-            }
-            if (a.title > b.title) {
-              return 1;
-            }
-            return 0;
-          })
-        ]
-      },
-      {
-        title: 'Puertas',
-        filter: TypeProduct.DOOR_PRODUCT,
-        subTypes: [
-          ...doorsData.map(door => {
-            return {
-              title: door.name,
-              filter: door.filters[2]
-            }
-          }).sort(function (a, b) {
-            if (a.title < b.title) {
-              return -1;
-            }
-            if (a.title > b.title) {
-              return 1;
-            }
-            return 0;
-          })
-        ]
-      }
-    ]
+    name: getProductTypeName(ProductFathersTypes.OPENERS_TYPES),
+    filter: ProductFathersTypes.OPENERS_TYPES
   },
   {
-    title: "Portones Garage",
-    filter: ProductFathersTypes.GARAGE_DOORS,
-    types: [
-      ...garageDoorsData.map(window => {
-        return {
-          title: window.name,
-          filter: window.filters[1]
-        }
-      }).sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    ]
+    name: getProductTypeName(ProductFathersTypes.CLOSERS_TYPES),
+    filter: ProductFathersTypes.CLOSERS_TYPES
   },
   {
-    title: "Sistemas Complementarios",
-    filter: ProductFathersTypes.CS_TYPES,
-    types: [
-     ...complementarySystemData.map(wall => {
-      return {
-        title: wall.name,
-        filter: wall.filters[1]
-      }
-     }).sort(function (a, b) {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    })
-    ]
+    name: getProductTypeName(ProductFathersTypes.CS_TYPES),
+    filter: ProductFathersTypes.CS_TYPES
   },
   {
-    title: "Fachadas",
-    filter: ProductFathersTypes.CLOSERS_TYPES,
-    types: [
-      ...closersData.map(wall => {
-        return {
-          title: wall.name,
-          filter: wall.filters[1]
-        }
-      }).sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    ]
+    name: getProductTypeName(ProductFathersTypes.WINDOWS),
+    filter: ProductFathersTypes.WINDOWS
   },
   {
-    title: "Reventas",
-    filter: ProductFathersTypes.RESALES,
-    types: [
-      ...resalesData.map(resales => {
-        return {
-          title: resales.name,
-          filter: resales.filters[1]
-        }
-      }).sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    ]
+    name: getProductTypeName(ProductFathersTypes.GARAGE_DOORS),
+    filter: ProductFathersTypes.GARAGE_DOORS
   },
   {
-    title: "Control Solar",
-    filter: ProductFathersTypes.SOLAR_CONTROL,
-    types: [
-      ...controlSolar.map(solarControl => {
-        return {
-          title: solarControl.name,
-          filter: solarControl.filters[1]
-        }
-      }).sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    ]
+    name: getProductTypeName(ProductFathersTypes.RESALES),
+    filter: ProductFathersTypes.RESALES
   },
   {
-    title: "Vidrios",
-    filter: ProductFathersTypes.SOLAR_CONTROL,
-    types: [
-      ...windowsFatherData.map(window => {
-        return {
-          title: window.name,
-          filter: window.filters[1]
-        }
-      }).sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    ]
+    name: getProductTypeName(ProductFathersTypes.SOLAR_CONTROL),
+    filter: ProductFathersTypes.SOLAR_CONTROL
   },
-  // {
-  //   title: "Servicios",
-  //   filter: ProductFathersTypes.SERVICES_TYPES,
-  //   types: [
-      
-  //   ]
-  // },
-];
+  
+]
 
 interface ShopNavComponentProps {
-  setCatalogData: any;
+  handleToggleFilter: (string: ProductFathersTypes) => void;
+  filters: ProductFathersTypes[];
 }
 
-export const ShopNavComponent:FC <ShopNavComponentProps> = ({ setCatalogData }) => {
+export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter, filters }) => {
   return (
-    <div>
-      <h4 className="title-sidebar">
-        Productos
-      </h4>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{ display: "flex", flexDirection: 'column' }}>
+      {
+        filters.length > 0 && (
+          <div className="blog__tag-wrap animate__animated animate__fadeIn">
+            <h4 className="title-sidebar">
+              Filtros
+            </h4>
+            <div className="blog__tag">
+              {
+                filters.map(filter => {
+                  return (
+                    <a 
+                      className="animate__animated animate__fadeIn"
+                      key={`shop-nav-filters-${filter}`} 
+                      href="" 
+                      onClick={(e) =>(e.preventDefault(), handleToggleFilter(filter))}
+                    >
+                      {getProductTypeName(filter)}
+                    </a>
+                  )
+                })
+              }
+            </div>
+          </div>
+        )
+      }
+      <ul className="blog__cate ul--no-style">
+        <h4 className="title-sidebar">
+          Categorias
+        </h4>
         {
-          dataNav.map((item)=> {
+          navData.map((buttonData) => {
             return (
-              <AccordionItem data={item} setCatalogData={setCatalogData} key={item.title}/>
+              <li key={`shop-nav-${buttonData.name}`} style={{ cursor: 'pointer', color: filters.includes(buttonData.filter) ? 'red' : '' }} onClick={() => handleToggleFilter(buttonData.filter)}>
+                <a type="button">
+                  {buttonData.name}
+                  <span>
+                    <em>({allCatalogData.filter(product => product.filters.includes(buttonData.filter)).length})</em>
+                  </span>
+                </a>
+              </li>
             )
           })
         }
-      <a
-        href={`/${PAGES_PATH.CATALOG_PATH}/${PAGES_PATH.TEXTURES}`} 
-        className="accordion-main-button"
-        style={{ color:'black'  }}
-      >
-        <i className="fa fa-chevron-right" aria-hidden="true"></i>
-        Texturas
-      </a>
-      </div>
+      </ul>
     </div>
   );
 };

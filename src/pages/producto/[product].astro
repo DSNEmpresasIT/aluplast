@@ -24,7 +24,7 @@ let relatedProducts = allCatalogData
 
 if (!relatedProducts.length) {
   relatedProducts = allCatalogData
-  .filter(product => product.filters.includes(productSelected.filters[0] ))
+  .filter(product => product.filters.includes(productSelected.filters[0]))
   .filter(product => product !== productSelected)
 }
 

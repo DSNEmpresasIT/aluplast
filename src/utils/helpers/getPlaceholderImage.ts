@@ -5,7 +5,7 @@ import { ProductFathersTypes, TypeProduct } from '../types/types';
 
 export const getThePlaceholderImage = (filter :string[]):string => {
   if (filter.includes(ProductFathersTypes.OPENERS_TYPES)) {
-    return windowsPlaceholder.src;
+    return windowsPlaceholder;
   }
   
   // if (filter.includes(ProductFathersTypes.CS_TYPES)) {
@@ -16,5 +16,5 @@ export const getThePlaceholderImage = (filter :string[]):string => {
 
   // }
 
-  return complementarySystemPlaceholder.src; 
+  return complementarySystemPlaceholder; 
 }
