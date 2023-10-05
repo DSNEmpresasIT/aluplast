@@ -35,7 +35,7 @@ export const ShopComponent = ({ query }:any) => {
         newData = [...newData, ...data]
       }
     })
-    setCatalogData(newData);
+    setCatalogData(newData.sort(() => { return Math.random() - 0.5 }));
     setIndexPagination({ startIndex: 0, lastIndex: 6 })
     return undefined
   }
