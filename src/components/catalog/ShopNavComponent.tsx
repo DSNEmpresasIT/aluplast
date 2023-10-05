@@ -1,5 +1,5 @@
+import React, { type FC } from "react";
 import { AccordionItem } from "@components/accordion/AccordionItem";
-import React, { FC } from "react";
 import { closersData, complementarySystemData, controlSolar, doorsData, garageDoorsData, resalesData, windowsData, windowsFatherData } from "src/utils/data/catalogData";
 import { PAGES_PATH } from "src/utils/types/pagesTypes";
 import { ProductFathersTypes, TypeProduct } from "src/utils/types/types";
@@ -139,6 +139,26 @@ const dataNav = [
         return {
           title: resales.name,
           filter: resales.filters[1]
+        }
+      }).sort(function (a, b) {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      })
+    ]
+  },
+  {
+    title: "Control Solar",
+    filter: ProductFathersTypes.SOLAR_CONTROL,
+    types: [
+      ...controlSolar.map(solarControl => {
+        return {
+          title: solarControl.name,
+          filter: solarControl.filters[1]
         }
       }).sort(function (a, b) {
         if (a.title < b.title) {
