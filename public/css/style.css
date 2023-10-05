@@ -2506,13 +2506,13 @@ a.pro-link:hover {
 /* Partner */
 
 .partner {
-    background-image: url('../img/bg-partner.jpg');
+    /* background-image: url('../img/bg-partner.jpg'); */
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: var(--main-blue);
+    background-color: white;
     /* padding: 35px 60px; */
     padding: 60px 0;
     /* display: -webkit-box;

@@ -3,31 +3,46 @@ import ShopCardComponent from "./ShopCardComponent";
 import { ShopNavComponent } from "./ShopNavComponent";
 import { allCatalogData } from "src/utils/data/catalogData";
 import { CatalogFiltersTypes } from "src/utils/types/types";
-import type { CatalogData } from "src/utils/types/types";
+import type { CatalogData, ProductFathersTypes } from "src/utils/types/types";
 import { pagination } from "src/utils/helpers/pagination";
 
 const initialState = [
   ...allCatalogData
-].sort(function() { return Math.random() - 0.5 });
+].sort(() => { return Math.random() - 0.5 });
 
 export const ShopComponent = ({ query }:any) => {
+  const [ filters, setFilters ] = useState<ProductFathersTypes[]>([]);
   const [ catalogData,  setCatalogData ] = useState<CatalogData[]>(initialState);
   const [ indexPagination, setIndexPagination ] = useState({ startIndex: 0, lastIndex: 6 });
   const [ dataPaginated, setDataPaginated ] = useState<CatalogData[]>(catalogData || []);
 
-  const handleFilterNav = (productType: string, filterType: CatalogFiltersTypes) => {
-    let newData: CatalogData[];
-    if (filterType === CatalogFiltersTypes.SEARCH) {
-      newData = allCatalogData.filter(product => product.name === productType);
+  const handleToggleFilters = (filter: ProductFathersTypes) => {
+    if (filters.includes(filter)) {
+      setFilters([...filters.filter(item => item !== filter)])      
+    } else {
+      setFilters([...filters, filter]);
     }
-    if (filterType === CatalogFiltersTypes.PRODUCT_FILTER) {
-      newData = allCatalogData.filter(product => product.filters.includes(productType));
-    }
-    if (filterType === CatalogFiltersTypes.IMG) {
-      newData = allCatalogData.filter(product => product.img === productType);
-    } 
+
+    return undefined;
+  }
+
+  const handleFilterData = () => {
+    let newData: CatalogData[] = [];
+
+    filters.forEach((filter) => {
+      const data = allCatalogData.filter((product) => product.filters.includes(filter))
+      if (data.length) {
+        newData = [...newData, ...data]
+      }
+    })
+    setCatalogData(newData);
+    setIndexPagination({ startIndex: 0, lastIndex: 6 })
+    return undefined
+  }
+
+  const handleSearchByName = (name: string) => {
+    const newData = allCatalogData.filter(product => product.name === name);
     
-    //@ts-ignore
     setCatalogData(newData);
     setIndexPagination({ startIndex: 0, lastIndex: 6 })
     return undefined;
@@ -42,24 +57,32 @@ export const ShopComponent = ({ query }:any) => {
 
   useEffect(() => {
     if (query) {
-      handleFilterNav(query, CatalogFiltersTypes.PRODUCT_FILTER);
+      setFilters([...filters, query])
     }    
-  }, []);
+  }, [query]);
 
   useEffect(() => {
     setDataPaginated(pagination(catalogData, indexPagination));
-  }, [indexPagination, catalogData])
+  }, [indexPagination, catalogData]);
+
+  useEffect(() => {
+    if (filters.length) {
+      handleFilterData();
+    } else {
+      setCatalogData(initialState)
+    }
+  }, [filters])
 
   return (
     <section className="pro-list-wrap">
-      <div className="section-content section-content--w1140">
+      <div className="section-content section-content--w1140" style={{ width: '100%' }}>
         <div className="container">
           <div className="pro-list">
             <div className="row">
-              <div className="col-lg-3 col-md-12">
-                <ShopNavComponent setCatalogData={handleFilterNav} />
+              <div className="col-lg-4 col-md-12">
+                <ShopNavComponent handleToggleFilter={handleToggleFilters} filters={filters} />
               </div>
-              <div className="col-lg-9 col-md-12">
+              <div className="col-lg-8 col-md-12">
                 <div className="row">
                   {
                     dataPaginated?.map(product => {
