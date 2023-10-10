@@ -49,7 +49,7 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
           <a
             href={link}
             className="au-btn au-btn--pill au-btn--yellow"
-            style={{ color: 'white', maxWidth: '120px', maxHeight: '70px' }}
+            style={{ color: 'white', maxWidth: '120px', maxHeight: '40px', lineHeight: '30px', borderRadius: '10px', backgroundColor: '#0a75ba' }}
           >
             Ver producto
           </a>
