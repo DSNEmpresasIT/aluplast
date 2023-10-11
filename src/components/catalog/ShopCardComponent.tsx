@@ -22,7 +22,7 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
   useEffect(() => product.name ? setProductName(product.name) : setProductName('Producto') , [product.name]);
 
   return (
-    <div className="col-lg-4 col-md-6 col-12 animate__animated animate__fadeIn">
+    <div className="col-lg-4 col-md-6 col-12 animate__animated animate__fadeIn" style={{ maxHeight: '430px', minHeight: '430px' }}>
       <div className="pro__item">
         <div className="pro__img">
           <img alt="Product 1" src={img} />
@@ -43,7 +43,7 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
             <span style={{ fontSize: '10px', color: 'red' }}>{getProductTypeName(product.filters[0])}</span>
             <span style={{ fontSize: '10px', color: 'green' }}>Nuevo</span>
           </p>
-          <h5>
+          <h5 style={{ height: '40px' }}>
             <a href="single-product.html" style={{ textTransform: 'none' }}>{productName}</a>
           </h5>
           <a

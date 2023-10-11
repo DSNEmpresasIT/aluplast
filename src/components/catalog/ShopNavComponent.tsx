@@ -60,7 +60,7 @@ export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter
                       href="" 
                       onClick={(e) =>(e.preventDefault(), handleToggleFilter(filter))}
                     >
-                      {getProductTypeName(filter)}
+                      {getProductTypeName(filter)} <span style={{ marginLeft: '4px' }}>x</span>
                     </a>
                   )
                 })

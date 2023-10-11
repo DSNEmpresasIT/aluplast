@@ -55,7 +55,7 @@ export const BlogSectionComponent: FC<BlogSectionComponentProps> = ({
             <span className="page-loader__spin"></span>
           </section>
         ) : (
-          <section className="blog">
+          <section className="blog animate__animated animate__fadeIn">
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 col-12">
@@ -196,7 +196,7 @@ export const BlogSectionComponent: FC<BlogSectionComponentProps> = ({
                       href={`/${PAGES_PATH.NEWS_PATH}`}
                       className="au-btn au-btn--big au-btn--pill au-btn--yellow au-btn--white"
                     >
-                      See More
+                      Ver publicaciones
                     </a>
                   </div>
                 </div>
