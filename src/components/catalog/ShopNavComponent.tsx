@@ -74,7 +74,7 @@ export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter
           Categorias
         </h4>
         {
-          navData.map((buttonData) => {
+          navData?.map((buttonData) => {
             return (
               <li key={`shop-nav-${buttonData.name}`} style={{ cursor: 'pointer', color: filters.includes(buttonData.filter) ? 'red' : '' }} onClick={() => handleToggleFilter(buttonData.filter)}>
                 <a type="button">

@@ -87,12 +87,13 @@ export interface Keys {
 }
 
 export interface ProjectDetail {
+  id: string;
   img: string[];
   title: string;
   description: string;
   type: ProjectTypes;
   client: string;
-  project_date: string;
+  project_date?: string;
 }
 
 

@@ -14,33 +14,31 @@ export const ProjectDetailComponent:FC<ProjectDetailComponentProps> = ({ project
           <div className="port1-wrap">
             <div className="row">
               <div className="col-lg-8 mt-4 col-md-12">
+                
                 <div className="port1__big-img">
-                  <a href={`/img/projects/${projectDetail?.img[0]}.jpg`} data-lightbox="portfolio">
-                    <img alt="Portfolio 1" src={`/img/projects/${projectDetail?.img[0]}.jpg`} />
+                  <a href={`/img/projects/${projectDetail?.id}/${projectDetail?.img[0]}.jpg`} data-lightbox="portfolio">
+                    <img alt="Portfolio 1" src={`/img/projects/${projectDetail?.id}/${projectDetail?.img[0]}.jpg`} />
                   </a>
                 </div>
                 <div className="port1__img-wrap">
-                  <div className="port1-img">
-                    <a href={`/img/projects/${projectDetail?.img[0]}.jpg`} data-lightbox="portfolio">
-                      <img alt="Portfolio Small 1" src={`/img/projects/${projectDetail?.img[0]}.jpg`} />
-                    </a>
-                  </div>
-                  <div className="port1-img">
-                    <a href={`/img/projects/${projectDetail?.img[0]}.jpg`} data-lightbox="portfolio">
-                      <img alt="Portfolio Small 2" src={`/img/projects/${projectDetail?.img[0]}.jpg`} />
-                    </a>
-                  </div>
-                  <div className="port1-img">
-                    <a href={`/img/projects/${projectDetail?.img[0]}.jpg`} data-lightbox="portfolio">
-                      <img alt="Portfolio Small 3" src={`/img/projects/${projectDetail?.img[0]}.jpg`} />
-                    </a>
-                  </div>
+                  {
+                    projectDetail?.img.map((img, index) => {
+                      if (index === 0) return;
+                      return (
+                        <div className="port1-img">
+                          <a href={`/img/projects/${projectDetail?.id}/${img}.jpg`} data-lightbox="portfolio">
+                            <img alt="Portfolio Small 1" src={`/img/projects/${projectDetail?.id}/${img}.jpg`} />
+                          </a>
+                        </div>
+                      )
+                    }) 
+                  }
                 </div>
               </div>
               <div className="col-lg-4 col-md-12">
                 <div className="port__text">
                   <h3>{ projectDetail?.title }</h3>
-                  <p className="m-b-20">
+                  <p className="m-b-20" >
                     { projectDetail?.description }
                   </p>
                   <p>
@@ -60,7 +58,7 @@ export const ProjectDetailComponent:FC<ProjectDetailComponentProps> = ({ project
                     </li> */}
                     <li>
                       <span className="port__info-title">Fecha</span>
-                      <span className="port__info-value">{projectDetail?.project_date}</span>
+                      {projectDetail?.project_date && (<span className="port__info-value">{projectDetail?.project_date}</span>)}
                     </li>
                   </ul>
                   <div className="social--port">

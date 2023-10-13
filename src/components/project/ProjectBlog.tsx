@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import product from 'src/pages/producto/[product].astro';
 import { projects } from 'src/utils/data/projectsData'
 import { pagination } from 'src/utils/helpers/pagination';
 import { ProjectTypes, type ProjectDetail } from 'src/utils/types/types'
@@ -31,7 +32,7 @@ export const ProjectBlog = ({ setProjectDetail }: { setProjectDetail: Dispatch<S
     } else {
       setProjectBlogFilter(projects);
     }
-    setSliceIndex({ startIndex: 0, lastIndex: 2 })
+    setSliceIndex({ startIndex: 0, lastIndex: 4 })
   }, [projectFilter]);
 
   return (
@@ -51,15 +52,15 @@ export const ProjectBlog = ({ setProjectDetail }: { setProjectDetail: Dispatch<S
                   <li onClick={() => setProjectFilter(ProjectTypes.RESIDENCIAL)}>
                     <span>Residencial</span>
                   </li>
-                  <li onClick={() => setProjectFilter(ProjectTypes.INSTITUCIONAL)}>
+                  {/* <li onClick={() => setProjectFilter(ProjectTypes.INSTITUCIONAL)}>
                     <span>Institucional</span>
-                  </li>
+                  </li> */}
                   <li onClick={() => setProjectFilter(ProjectTypes.EDIFICIOS)}>
                     <span>Edificios</span>
                   </li>
-                  <li onClick={() => setProjectFilter(ProjectTypes.INTERIORISMO)}>
+                  {/* <li onClick={() => setProjectFilter(ProjectTypes.INTERIORISMO)}>
                     <span>Interiorismo</span>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -74,7 +75,9 @@ export const ProjectBlog = ({ setProjectDetail }: { setProjectDetail: Dispatch<S
                 >
                   <div className="project__item">
                     <div className="pro__img">
-                      <img alt="Project 1" src={`/img/projects/${project.img[0]}.jpg`} />
+                      <div style={{  maxHeight: '350px', overflow: 'hidden' }}>
+                        <img alt="Project 1" src={`/img/projects/${project.id}/${project.img[0]}.jpg`} />
+                      </div>
                       <a type='button' style={{ cursor: 'pointer' }} className="pro-link">
                         <div className="pro-info pro-info--darker">
                           <h2 className="company">

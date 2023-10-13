@@ -5,11 +5,10 @@ import { PAGES } from "../../utils/types/pagesTypes";
 import BreadCumbCatalog from "@components/catalog/BreadCumbCatalog.astro";
 
 ---
-
 <Layout pageTitle={PAGES.CATALOG}>
   <!-- Page Wrap -->
   <div class="page-wrap">
     <BreadCumbCatalog />
-    <ShopComponent client:load/>
+    <ShopComponent client:only="react"/>
   </div>
 </Layout>
