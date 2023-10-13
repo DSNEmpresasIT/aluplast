@@ -57,12 +57,17 @@ export const ProjectDetailComponent:FC<ProjectDetailComponentProps> = ({ project
                       </span>
                     </li> */}
                     <li>
-                      <span className="port__info-title">Fecha</span>
-                      {projectDetail?.project_date && (<span className="port__info-value">{projectDetail?.project_date}</span>)}
+                      {projectDetail?.project_date && (
+                          <>
+                            <span className="port__info-title">Fecha</span>
+                            <span className="port__info-value">{projectDetail?.project_date}</span>
+                          </> 
+                        )
+                      }
                     </li>
                   </ul>
                   <div className="social--port">
-                    <a href="">
+                    {/* <a href="">
                       <i className="zmdi zmdi-facebook"></i>
                     </a>
                     <a href="">
@@ -76,7 +81,7 @@ export const ProjectDetailComponent:FC<ProjectDetailComponentProps> = ({ project
                     </a>
                     <a href="">
                       <i className="zmdi zmdi-instagram"></i>
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
