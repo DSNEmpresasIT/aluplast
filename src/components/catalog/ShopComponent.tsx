@@ -4,7 +4,8 @@ import { ShopNavComponent } from "./ShopNavComponent";
 import { allCatalogData } from "src/utils/data/catalogData";
 import { CatalogFiltersTypes } from "src/utils/types/types";
 import type { CatalogData, ProductFathersTypes } from "src/utils/types/types";
-import { pagination } from "src/utils/helpers/pagination";
+import { getProdutTypeText, pagination } from "src/utils/helpers/helpers";
+import { getProductTypeName } from "src/utils/helpers/helpers";
 
 const initialState = [
   ...allCatalogData
@@ -84,6 +85,20 @@ export const ShopComponent = ({ query }:any) => {
               </div>
               <div className="col-lg-8 col-md-12">
                 <div className="row">
+                  {
+                    filters.length === 1 && (
+                      <div className="col-12 animate__animated animate__fadeIn">
+                        <div className="blog__about">
+                          <h4 className="title-sidebar">
+                            {getProductTypeName(filters[0])}
+                          </h4>
+                          <p className="animate__animated animate__fadeIn">
+                            {getProdutTypeText(filters[0])}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  }
                   {
                     dataPaginated?.map(product => {
                       return (

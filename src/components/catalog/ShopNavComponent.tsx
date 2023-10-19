@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 import { allCatalogData  } from "src/utils/data/catalogData";
 import { ProductFathersTypes } from "src/utils/types/types";
-import { getProductTypeName } from "src/utils/helpers/getProductTypesNames";
+import { getProductTypeName } from "src/utils/helpers/helpers";
 
 
 const navData = [

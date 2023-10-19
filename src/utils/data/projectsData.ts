@@ -1,4 +1,4 @@
-import { getFormatDate } from "../helpers/getFormatDate";
+import { getFormatDate } from "../helpers/helpers";
 import { ProjectTypes, type ProjectDetail } from "../types/types";
 
 export const projects: ProjectDetail[] = [

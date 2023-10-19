@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useBlogContext } from 'src/context/blogContext'
 import { BlogTypes } from 'src/context/types/blog';
-import { getFormatDate } from 'src/utils/helpers/getFormatDate';
+import { getFormatDate } from 'src/utils/helpers/helpers';
 import type { FacebookPost } from 'src/utils/types/types';
 import { BlogDetailRelatedPost } from './blog-detail/BlogDetailRelatedPost';
 import { BlogDetailComments } from './blog-detail/BlogDetailComments';

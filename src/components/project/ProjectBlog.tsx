@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import product from 'src/pages/producto/[product].astro';
 import { projects } from 'src/utils/data/projectsData'
-import { pagination } from 'src/utils/helpers/pagination';
+import { pagination } from 'src/utils/helpers/helpers';
 import { ProjectTypes, type ProjectDetail } from 'src/utils/types/types'
 
 interface paginationIndex {

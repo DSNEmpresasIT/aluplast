@@ -1,5 +1,5 @@
 import React from 'react'
-import { getFormatDate } from 'src/utils/helpers/getFormatDate'
+import { getFormatDate } from 'src/utils/helpers/helpers'
 import type { FacebookPostComments } from 'src/utils/types/types'
 import ProfilePlaceholderImage from '../assets/profile-placeholder.jpg';
 

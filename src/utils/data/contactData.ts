@@ -58,6 +58,11 @@ export const footerDirectionsData = [
     phone: '+54 3446 507870',
     addressLink: "https://www.google.com/maps/dir//Aluplast+Concordia,+V%C3%A9lez+S%C3%A1rsfield+569,+E3200+Concordia,+Entre+R%C3%ADos/@-31.3921086,-58.0321345,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95ade9dedca803db:0xb117322bf10cb2fe!2m2!1d-58.0295596!2d-31.3921132?entry=ttu"
   },
+  {
+    title: 'Sucursal Colón',
+    addressLink: 'https://www.google.com/maps/dir//Gral.+Paz+114,+E3280+Col%C3%B3n,+Entre+R%C3%ADos,+Argentina/@-32.2226009,-58.1462154,16.69z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95ae32e2a97b34e5:0x5a47a069e343ba2!2m2!1d-58.1439609!2d-32.222506?entry=ttu',
+    phone: '03447-427831',
+  }
 ]
 
 

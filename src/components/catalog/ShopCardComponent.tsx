@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type { FC } from "react";
-import { getThePlaceholderImage } from "src/utils/helpers/getPlaceholderImage";
-import { getProductTypeName } from "src/utils/helpers/getProductTypesNames";
+import { getThePlaceholderImage } from "src/utils/helpers/helpers";
+import { getProductTypeName } from "src/utils/helpers/helpers";
 import { PAGES_PATH } from "src/utils/types/pagesTypes";
 import type { CatalogData } from "src/utils/types/types";
 

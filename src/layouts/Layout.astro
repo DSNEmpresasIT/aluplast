@@ -6,7 +6,6 @@ import BackToTop from "../components/common/BackToTop.astro";
 import Footer from "../components/common/Footer.astro";
 import WhatsAppButtonComponent from "../components/common/WhatsAppButtonComponent.jsx";
 import { PAGES } from "../utils/types/pagesTypes";
-import { getFormatData } from 'src/utils/helpers/getFormatData';
 
 const { pageTitle } = Astro.props;
 ---
@@ -14,6 +13,10 @@ const { pageTitle } = Astro.props;
 <!DOCTYPE html lang="en" class="homepage-box">
 <head>
   <title>{pageTitle}</title>
+  <meta property="og:title" content="Aluplast - Innovación en aberturas de aluminio y PVC">
+  <meta name="keywords" content="aluminio, concordia, pvc, aberturas, cerramientos, sistemas complementarios, portones, control solar, vidrios, garage, diseño, puertas, ventanas">
+  <meta property="og:image" content="https://aluplast.com.ar/img/whoweare/we-are-01.jpg">
+  <meta property="og:image:width" content="100">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Fabricante líder de aberturas de aluminio de alta calidad. Expertos en diseño y fabricación de ventanas, puertas y más.">

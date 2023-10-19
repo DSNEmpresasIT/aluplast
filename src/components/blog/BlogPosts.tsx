@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useBlogContext } from 'src/context/blogContext';
 import { BlogTypes } from 'src/context/types/blog';
 import type { FacebookPost } from 'src/utils/types/types';
-import { getFormatDate } from 'src/utils/helpers/getFormatDate';
-import { pagination } from 'src/utils/helpers/pagination';
+import { getFormatDate } from 'src/utils/helpers/helpers';
+import { pagination } from 'src/utils/helpers/helpers';
 
 export const BlogPosts = () => {
   const { state, dispatch }: any = useBlogContext();
