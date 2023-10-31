@@ -8,7 +8,7 @@ interface paginationIndex {
   lastIndex: number; 
 }
 
-const names: any = {
+const productNames: any = {
   [ProductFathersTypes.OPENERS_TYPES]: 'Aberturas',
   [ProductFathersTypes.CLOSERS_TYPES]: 'Cerramientos',
   [ProductFathersTypes.GARAGE_DOORS]: 'Puertas garage',
@@ -16,6 +16,11 @@ const names: any = {
   [ProductFathersTypes.SOLAR_CONTROL]: 'Control solar',
   [ProductFathersTypes.WINDOWS]: 'Vidrios',
   [ProductFathersTypes.CS_TYPES]: 'Sistemas complementarios'
+}
+
+const typeName: any = {
+  [TypeProduct.DOOR_PRODUCT]: 'Puertas',
+  [TypeProduct.WINDOW_PRODUCT]: 'Ventanas'
 }
 
 const text: any = {
@@ -39,13 +44,8 @@ export function pagination(arr: any[], index: paginationIndex) {
   return paginated;
 } 
 
-export function getProductTypeName(filter: string) {
-  return names[filter] ?? 'Producto';
-}
-
-export function getProdutTypeText(filter: string) {
-  return text[filter] ?? '';
-}
+export const getProductTypeName = (filter: string) => productNames[filter] || typeName[filter];
+export const getProdutTypeText = (filter: string) => text[filter] ?? '';
 
 // export const getFormatData = () => {
 //   const texto = `Eficiencia Energética: Contribuyen al aislamiento térmico y acústico del hogar.

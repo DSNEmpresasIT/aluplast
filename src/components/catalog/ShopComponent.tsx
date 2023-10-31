@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ShopCardComponent from "./ShopCardComponent";
 import { ShopNavComponent } from "./ShopNavComponent";
 import { allCatalogData } from "src/utils/data/catalogData";
-import { CatalogFiltersTypes } from "src/utils/types/types";
 import type { CatalogData, ProductFathersTypes } from "src/utils/types/types";
 import { getProdutTypeText, pagination } from "src/utils/helpers/helpers";
 import { getProductTypeName } from "src/utils/helpers/helpers";
@@ -16,8 +15,11 @@ export const ShopComponent = ({ query }:any) => {
   const [ catalogData,  setCatalogData ] = useState<CatalogData[]>(initialState);
   const [ indexPagination, setIndexPagination ] = useState({ startIndex: 0, lastIndex: 6 });
   const [ dataPaginated, setDataPaginated ] = useState<CatalogData[]>(catalogData || []);
+  const [ searchQuery, setSearchQuery ] = useState<string | null>(null);
+  
+  const handleToggleFilters = (filter: ProductFathersTypes | null) => {
+    if (!filter) return setFilters([]);
 
-  const handleToggleFilters = (filter: ProductFathersTypes) => {
     if (filters.includes(filter)) {
       setFilters([...filters.filter(item => item !== filter)])      
     } else {
@@ -29,23 +31,25 @@ export const ShopComponent = ({ query }:any) => {
 
   const handleFilterData = () => {
     let newData: CatalogData[] = [];
-
-    filters.forEach((filter) => {
-      const data = allCatalogData.filter((product) => product.filters.includes(filter))
+    if (filters) {
+      const data = allCatalogData.filter((product) => product.filters.includes(filters[filters.length - 1]))
       if (data.length) {
         newData = [...newData, ...data]
       }
-    })
-    setCatalogData(newData.sort(() => { return Math.random() - 0.5 }));
-    setIndexPagination({ startIndex: 0, lastIndex: 6 })
-    return undefined
+      setCatalogData(newData.sort(() => { return Math.random() - 0.5 }));
+      setIndexPagination({ startIndex: 0, lastIndex: 6 })
+    }
+
+    if (searchQuery) {
+      handleSearchByName(searchQuery);
+    }
+    return undefined;
   }
 
   const handleSearchByName = (name: string) => {
-    const newData = allCatalogData.filter(product => product.name === name);
-    
+    const newData = catalogData.filter(product => product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1); 
     setCatalogData(newData);
-    setIndexPagination({ startIndex: 0, lastIndex: 6 })
+    setIndexPagination({ startIndex: 0, lastIndex: 6 });
     return undefined;
   }
 
@@ -67,12 +71,12 @@ export const ShopComponent = ({ query }:any) => {
   }, [indexPagination, catalogData]);
 
   useEffect(() => {
-    if (filters.length) {
+    if (filters.length || searchQuery) {
       handleFilterData();
     } else {
       setCatalogData(initialState)
     }
-  }, [filters])
+  }, [filters, searchQuery])
 
   return (
     <section className="pro-list-wrap">
@@ -81,7 +85,12 @@ export const ShopComponent = ({ query }:any) => {
           <div className="pro-list">
             <div className="row">
               <div className="col-lg-4 col-md-12">
-                <ShopNavComponent handleToggleFilter={handleToggleFilters} filters={filters} />
+                <ShopNavComponent 
+                  setSearchQuery={setSearchQuery}
+                  handleToggleFilter={handleToggleFilters} 
+                  filters={filters} 
+                  totalProducts={catalogData.length} 
+                />
               </div>
               <div className="col-lg-8 col-md-12">
                 <div className="row">
