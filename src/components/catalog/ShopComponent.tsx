@@ -19,14 +19,9 @@ export const ShopComponent = ({ query }:any) => {
   
   const handleToggleFilters = (filter: ProductFathersTypes | null) => {
     if (!filter) return setFilters([]);
+    if (filters.includes(filter)) return setFilters([...filters.filter(item => item !== filter)])      
 
-    if (filters.includes(filter)) {
-      setFilters([...filters.filter(item => item !== filter)])      
-    } else {
-      setFilters([...filters, filter]);
-    }
-
-    return undefined;
+    return setFilters([...filters, filter]);
   }
 
   const handleFilterData = () => {

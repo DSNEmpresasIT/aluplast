@@ -16,7 +16,13 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
   const [ textButton, setTextButton ] = useState<string>();
   const [productName, setProductName ] = useState<string>();
 
-  useEffect(() => product.img ? setImg(`/img/products/${product.img}/${product.img}.png`) : setImg(getThePlaceholderImage(product.filters)) , [product.img]);
+  useEffect(() => {
+    if (product.img && product.img[0]) {
+      setImg(`/img/products/${product.img[0]}.png`)
+    } else {
+      setImg(getThePlaceholderImage(product.filters)) 
+    }
+  }, [product.img]);
   useEffect(() => isHome ? setLink(`/${PAGES_PATH.CATALOG_PATH}`) : setLink(`/${PAGES_PATH.PRODUCT_PATH}/${product.name}`), [product.name, isHome])
   useEffect(() => isHome ? setTextButton('Ver en Catálogo') : setTextButton('Ver Detalle'), [isHome]);
   useEffect(() => product.name ? setProductName(product.name) : setProductName('Producto') , [product.name]);

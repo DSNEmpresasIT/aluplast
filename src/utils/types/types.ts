@@ -1,6 +1,6 @@
 export interface CatalogData { 
   name: string;
-  img?: string;
+  img?: string[];
   specs?: Specs; 
   description?: string;
   filters: string[];

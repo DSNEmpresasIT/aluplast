@@ -236,7 +236,7 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana proyectante",
-    // img: 'desplazableproyectante',
+    img: ['proyectante/1', 'proyectante/2', 'proyectante/3', 'proyectante/4'],
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -1440,7 +1440,7 @@ export const controlSolar: CatalogData[] = [
   },
   {
     name: "Parasol",
-    img: 'parasol',
+    // img: ['parasol'],
     filters: [ProductFathersTypes.SOLAR_CONTROL, "parasol"],
     description:
       "Los parasoles son ideales para áreas exteriores que requieren protección contra la luz solar directa. Estas aberturas ofrecen sombra y confort sin comprometer la estética de la obra y proporcionan seguridad a las ventanas. Perfectos para instituciones, fachadas y contra fachadas. Pueden ser de lamas tubulares o laminares. Fijos o móviles.",

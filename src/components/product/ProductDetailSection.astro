@@ -8,26 +8,26 @@ const placeholder = getThePlaceholderImage(productSelected.filters);
 <div class="row">
   <div class="col-lg-5 col-md-6">
     <div class="single-product-img">
-      <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
-        <img alt={`${productSelected.img}`} src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } />
+      <a href={productSelected.img ? `/img/products/${productSelected.img[0]}.png` : placeholder } data-lightbox="product">
+        <img alt={`${productSelected.img[0]}`} src={productSelected.img ? `/img/products/${productSelected.img[0]}.png` : placeholder } />
       </a>
     </div>
     <ul class="single-product-img-thumb ul--inline ul--no-style clearfix">
-      <li>
-        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
-          <img alt="Product Thumb 1" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
-        </a>
-      </li>
-      <li>
-        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
-          <img alt="Product Thumb 2" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
-        </a>
-      </li>
-      <li>
-        <a href={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder } data-lightbox="product">
-          <img alt="Product Thumb 3" src={productSelected.img ? `/img/products/${productSelected.img}/${productSelected.img}.png` : placeholder }>
-        </a>
-      </li>
+      {
+        productSelected.img.length && (
+          productSelected.img.map((img: string, index: number) => {
+            if (img && index) {
+              return (
+              <li>
+                <a href={(img) ? `/img/products/${img}.png` : placeholder } data-lightbox="product">
+                  <img alt={`${productSelected.name} ${index}`} src={img ? `/img/products/${img}.png` : placeholder }>
+                </a>
+              </li>
+              )
+            }
+          })
+        )
+      }
     </ul>
   </div>
   <div class="col-lg-7 col-md-6">

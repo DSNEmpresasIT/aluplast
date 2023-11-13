@@ -16,7 +16,7 @@ export async function getFacebookImagePosts(FACEBOOK_PAGE_TOKEN: string, FACEBOO
     const dataFetched = await fetch(`${BASE_URL}/${FACEBOOK_PAGE_ID}/feed?access_token=${FACEBOOK_PAGE_TOKEN}&fields=attachments,created_time,icon,comments{from{name, id, picture}, id , message, created_time, attachment}`)
     const data = await dataFetched.json();
 
-    const dataFiltered = data.data.filter((post: any)=> post?.attachments?.data[0]?.type === 'photo');
+    const dataFiltered = data.data.filter((post: any)=> post?.attachments?.data[0]?.type === 'photo' || post?.attachments?.data[0]?.type === 'album');
 
     return dataFiltered.map((post: any) => ({
       comments: post.comments?.data,

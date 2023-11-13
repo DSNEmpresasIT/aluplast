@@ -1,5 +1,4 @@
 import windowsPlaceholder from '../../assets/img/windows-placeholder.png';
-import doorsPlaceholder from '../../assets/img/doors-placeholder.png';
 import complementarySystemPlaceholder from '../../assets/img/complementary-system.png';
 import { ProductFathersTypes, TypeProduct } from '../types/types';
 
@@ -64,7 +63,6 @@ export const getProdutTypeText = (filter: string) => text[filter] ?? '';
 //     const [clave, valor] = linea.split(': ');
 //     arrayDeObjetos.push({ title: clave, text: valor });
 //   });
-
 // }
 
 
