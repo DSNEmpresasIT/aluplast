@@ -1,4 +1,4 @@
-import React, { useState, type FC } from "react";
+import React, { useState, type FC, useEffect } from "react";
 import { allCatalogData  } from "src/utils/data/catalogData";
 import { ProductFathersTypes, TypeProduct } from "src/utils/types/types";
 import { getProductTypeName } from "src/utils/helpers/helpers";
@@ -86,7 +86,7 @@ export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter
                       className="animate__animated animate__fadeIn"
                       key={`shop-nav-filters-${filter}`} 
                       href="" 
-                      onClick={(e) =>(e.preventDefault(), handleToggleFilter(filter))}
+                      onClick={(e) =>(e.preventDefault(), handleSetFilters(filter))}
                     >
                       {getProductTypeName(filter)} <span style={{ marginLeft: '4px' }}>x</span>
                     </a>
@@ -132,8 +132,7 @@ export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter
         ) : ''
       }
       {
-        subCategories 
-        ? (
+        subCategories && (
           <ul className="blog__cate ul--no-style">
             <h4 className="title-sidebar">
               Tipos de {filters[0]}
@@ -158,7 +157,6 @@ export const ShopNavComponent:FC <ShopNavComponentProps> = ({ handleToggleFilter
             }
           </ul>
         )
-        : (<></>)
       }
     </div>
   );
