@@ -8,11 +8,11 @@ import {
 export const windowsData: CatalogData[] = [
   {
     name: "Ventana banderola",
-    // img: 'banderola',
+    img: ['1', '2', '3'],
+    id: "banderola",
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
-      "banderola",
     ],
     description:
       "La abertura tipo banderola es una elección adecuada para espacios donde se busca la entrada de luz y ventilación controlada, son perfectas para habitaciones pequeñas o áreas donde el espacio es limitado. Su diseño permite una apertura parcial de la hoja hacia adentro, lo que permite una regulación precisa del flujo de aire y admite colocar tela mosquitera en el exterior del vano. Son ideales para baños, despensas y ventanas en altura.",
@@ -67,7 +67,8 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana corrediza",
-    // img: 'corrediza',
+    img: ['1', '2', '3', '4'],
+    id: 'corrediza',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -118,7 +119,8 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana de rebatir",
-    // img: 'deabrirpracticable',
+    img: ['1', '2', '3', '4'],
+    id: 'rebatir',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -177,7 +179,8 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana oscilobatiente",
-    // img: 'oscilobatiente',
+    img: ['1', '2', '3', '4'],
+    id: 'oscilobatiente',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -236,7 +239,8 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana proyectante",
-    img: ['proyectante/1', 'proyectante/2', 'proyectante/3', 'proyectante/4'],
+    img: ['1', '2', '3', '4'],
+    id: 'proyectante',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -354,7 +358,8 @@ export const windowsData: CatalogData[] = [
   },
   {
     name: "Ventana tipo paño fijo",
-    // img: 'plegadiza',
+    img: ['1', '2'],
+    id: 'pañofijo',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.WINDOW_PRODUCT,
@@ -414,7 +419,8 @@ export const windowsData: CatalogData[] = [
 export const doorsData: CatalogData[] = [
   {
     name: "Puerta de rebatir",
-    // img: 'puertarebatir',
+    img: ['1', '2', '3', '4'],
+    id: 'puertarebatir',
     filters: [
       ProductFathersTypes.OPENERS_TYPES,
       TypeProduct.DOOR_PRODUCT,

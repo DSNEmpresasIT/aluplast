@@ -8,8 +8,8 @@ const placeholder = getThePlaceholderImage(productSelected.filters);
 <div class="row">
   <div class="col-lg-5 col-md-6">
     <div class="single-product-img">
-      <a href={productSelected.img?.length ? `/img/products/${productSelected.img[0]}.png` : placeholder } data-lightbox="product">
-        <img alt={`${productSelected.name}--main-img`} src={productSelected.img?.length ? `/img/products/${productSelected.img[0]}.png` : placeholder } />
+      <a href={productSelected.img?.length ? `/img/products/${productSelected.id}/${productSelected.img[0]}.png` : placeholder } data-lightbox="product">
+        <img alt={`${productSelected.name}--main-img`} src={productSelected.img?.length ? `/img/products/${productSelected.id}/${productSelected.img[0]}.png` : placeholder } />
       </a>
     </div>
     <ul class="single-product-img-thumb ul--inline ul--no-style clearfix">
@@ -19,8 +19,8 @@ const placeholder = getThePlaceholderImage(productSelected.filters);
             if (img && index) {
               return (
               <li>
-                <a href={(img) ? `/img/products/${img}.png` : placeholder } data-lightbox="product">
-                  <img alt={`${productSelected.name} ${index}`} src={img ? `/img/products/${img}.png` : placeholder }>
+                <a href={(img) ? `/img/products/${productSelected.id}/${img}.png` : placeholder } data-lightbox="product">
+                  <img alt={`${productSelected.name} ${index}`} src={img ? `/img/products/${productSelected.id}/${img}.png` : placeholder }>
                 </a>
               </li>
               )

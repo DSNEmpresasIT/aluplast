@@ -2,6 +2,7 @@ export interface CatalogData {
   name: string;
   img?: string[];
   specs?: Specs; 
+  id?: string;
   description?: string;
   filters: string[];
 }

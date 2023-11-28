@@ -18,7 +18,7 @@ const ShopCardComponent:FC<ShopCardComponentProps> = ({ product, isHome = false 
 
   useEffect(() => {
     if (product.img && product.img[0]) {
-      setImg(`/img/products/${product.img[0]}.png`)
+      setImg(`/img/products/${product.id}/${product.img[0]}.png`)
     } else {
       setImg(getThePlaceholderImage(product.filters)) 
     }
